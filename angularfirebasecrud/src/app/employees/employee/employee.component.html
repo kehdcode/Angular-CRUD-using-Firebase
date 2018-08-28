@@ -1,3 +1,29 @@
-<p>
-  employee works!
-</p>
+<form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)"> 
+  <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="employeeService.selectedEmployee.$key">
+  <div class="form-group">
+    <label for="Name">Name</label>
+    <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name"
+    placeholder="Full Name" required>
+  </div>
+  <div class="form-group">
+    <label for="Name">Position</label>
+    <input type="text" class="form-control" name="position" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.position"
+    placeholder="Position" >
+  </div>
+  <div class="form-group">
+    <label for="Name">Office</label>
+    <input type="text" class="form-control" name="office" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.office"
+    placeholder="Office" >
+  </div>
+  <div class="form-group">
+    <label for="Name">Salary</label>
+    <input type="text" class="form-control" name="salary" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.salary"
+    placeholder="Salary" >
+  </div>
+  <div class="form-group">
+  <button class="btn btn-default" [disabled]="!employeeForm.valid" >
+     Submit</button>
+  <button class="btn btn-danger">Delete</button>
+  <button class="btn btn-primary"(click)="resetForm()" >Reset</button>
+  </div>
+</form>
