@@ -23,7 +23,7 @@
   <div class="form-group">
   <button class="btn btn-default" [disabled]="!employeeForm.valid" >
      Submit</button>
-  <button class="btn btn-danger">Delete</button>
+  <button class="btn btn-danger" *ngIf="employeeService.selectedEmployee.$key!=''" (click)="onDelete(employeeForm)">Delete</button>
   <button class="btn btn-primary"(click)="resetForm()" >Reset</button>
   </div>
 </form>
